@@ -9,13 +9,14 @@ public class TreeSetD {
 		TreeSet<cliente> ts1 = new TreeSet<cliente>(); 
 
 		// Elements are added using add() method 
-		ts1.add(new cliente("A", "gino", "cappuccino", 4)); 
+		ts1.add(new cliente("A", "gino", "cappuccino", 54)); 
 		ts1.add(new cliente("B", "pino", "cappucci", 44)); 
 		ts1.add(new cliente("C", "rino", "cappuccin", 4)); 
-
-
+        
 		// Elements get stored in default natural 
 		// Sorting Order(Ascending) 
+		//cliComp asd = new cliComp();
+		//Collections.sort(ts1,asd);
         System.out.println(ts1); 
 	} 
 } 
@@ -42,7 +43,13 @@ class cliente implements Comparable<cliente>{
     }
 }
 
-    
+    class cliComp implements Comparator<cliente>   {
+        public int compare(cliente c1, cliente c2)  {
+            if (c1.reddito < c2.reddito) return -1;
+            if (c1.reddito > c2.reddito) return 1;
+            else return 0;
+            }
+    }
 
 
 
