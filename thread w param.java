@@ -14,7 +14,6 @@ class MyThread implements Runnable    {
     public void run()   {
         increment();
         System.out.println("X =" + mamt + " + " + counter + " = "+(mamt+counter));
-        
     }
 }
 
@@ -22,9 +21,10 @@ public class test {
     public static void main (String[] args) throws InterruptedException {
         for (int i = 0;i < 10 ; i++)    {
             Thread asd = new Thread(new MyThread(5));
+            asd.setDaemon(true);
             asd.start();
-            //MyThread.counter++;
-            Thread.sleep(100);
+            System.out.println("Deamon: "+asd.isDaemon()); //return true or false
+            asd.sleep(100);
 
         } 
     }
